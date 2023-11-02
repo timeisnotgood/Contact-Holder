@@ -13,49 +13,9 @@ app.use(express.json())
 app.use(cors({
     origin : "*"
 }))
+app.use('/', require('./routes/Contactroute'))
 
 
-// Get contacts
-app.get('/findcontact', async (req, res)=>{
-    const data = await contacts.find()
-    res.json({data})
-})
-
-// Add Contacts
-
-app.post('/addcontact', async (req, res)=>{
-    const { name, email, number } = req.body
-
-    const data = await contacts.create({
-        name, 
-        email,
-        number
-    })
-    res.json({data})
-})
-
-// Delete Contacts
-
-app.delete('/deletecontact', async (req, res)=>{
-    const { id } = req.body
-    const del = await contacts.deleteOne({id})
-    if(del){
-        const data = await contacts.find()
-        res.json({data})
-    }
-})
-
-// Update Contact
-
-app.put('/updatecontact/:id',async(req, res)=>{
-    const { id } = req.params
-    const {name, email, number} = req.body
-    console.log(name, email, number);
-    const data = await contacts.findByIdAndUpdate(id, req.body )
-    const updated = await contacts.findOne({id})
-    res.json({updated, "status" : "updated Successfully" })
-    console.log(data);
-})
 
 
 // // Register Method
