@@ -3,10 +3,9 @@ const {getcontact, createcontact, updatecontact, deletecontact} = require('../co
 
 const Contactrouter = express.Router()
 
-router.use(bodyparser.json())
-router.get('/getcontact', getcontact)
-router.get('/createcontact', createcontact)
-router.get('/updatecontact/:id', updatecontact)
-router.get('/deletecontact/:id', deletecontact)
+Contactrouter.get('/getcontact', getcontact)
+Contactrouter.get('/createcontact', createcontact)
+Contactrouter.get('/updatecontact/:id', updatecontact)
+Contactrouter.get('/deletecontact/:id', deletecontact)
 
 module.exports = Contactrouter

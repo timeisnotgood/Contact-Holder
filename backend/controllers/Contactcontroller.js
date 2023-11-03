@@ -1,3 +1,5 @@
+const contacts = require("../model/contact") 
+
 // Get contacts
 const getcontact = async (req, res)=>{
     const data = await contacts.find()
