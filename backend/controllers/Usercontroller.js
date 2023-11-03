@@ -1,4 +1,6 @@
-const contacts = require("../model/user") 
+const user = require("../model/user") 
+const bcrypt = require("bcrypt")
+const jwt = require("jsonwebtoken")
 
 // Register Method
 
