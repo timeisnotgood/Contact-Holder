@@ -5,13 +5,9 @@ const mongoose = require("mongoose")
 const user = require("./model/user")
 const app = express()
 const port = 5000
-const bcrypt = require("bcrypt")
-const jwt = require("jsonwebtoken")
 
 app.use(express.json())
-app.use(cors({
-    origin : "*"
-}))
+app.use(cors())
 app.use('/contact', require('./routes/Contactroute'))
 app.use('/user', require('./routes/Userroute'))
 

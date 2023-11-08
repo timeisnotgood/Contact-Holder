@@ -33,14 +33,17 @@ const login =  async(req, res)=>{
     }
 
     const data = await user.find({email})
-    const uss = await bcrypt.compare(password, data[0].password)
+    if(!data){
+        console.log("not registered");
+    }
+    console.log(data);
 
     if(data && (await bcrypt.compare(password, data[0].password))){
         const accesstoken = jwt.sign({
             user:{
-                name : data.name,
-                email : data.email,
-                id : data.id
+                name : data[0].name,
+                email : data[0].email,
+                id : data[0].id
             },
         }, "bhoopathi", {expiresIn:"10m"})
 
