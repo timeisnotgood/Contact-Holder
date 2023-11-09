@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "json-server -w db.json -p 3009",
-    "dev": "nodemon index"
+    "dev": "json-server -w db.json -p 3009",
+    "start": "nodemon index"
   },
   "keywords": [],
   "author": "",
